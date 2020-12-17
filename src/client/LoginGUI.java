@@ -25,19 +25,29 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Color;
 import java.awt.Font;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LoginGUI.
+ */
 public class LoginGUI extends JFrame {
 
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The username input. */
 	private JTextField usernameInput;
+	
+	/** The password input. */
 	private JTextField passwordInput;
 
 	
 	/**
 	 * Launch the application.
+	 *
+	 * @param args the arguments
 	 */
 
 	public static void main(String[] args) {

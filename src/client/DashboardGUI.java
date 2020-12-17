@@ -21,18 +21,30 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
+import javax.swing.ImageIcon;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DashboardGUI.
+ */
 public class DashboardGUI extends JFrame {
+	
+	/** The Session cookie. */
 	public static String SessionCookie;
+	
+	/** The cookie. */
 	String cookie;
-	/**
-	 * 
-	 */
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The content pane. */
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -49,6 +61,8 @@ public class DashboardGUI extends JFrame {
 
 	/**
 	 * Create the frame.
+	 *
+	 * @param loginSessionCookie the login session cookie
 	 */
 	public DashboardGUI(String loginSessionCookie) {
 		cookie = loginSessionCookie;
@@ -129,6 +143,9 @@ public class DashboardGUI extends JFrame {
 		JLabel lblNewLabel = new JLabel(cookie == null ? "" : "⬤ Logged in as admin");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 25));
 		lblNewLabel.setForeground(new Color(0, 255, 51));
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon("/home/nipun/eclipse-workspace/EmmitoUserFeedbackQuestionnaire/src/assets/bg.png"));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -151,6 +168,10 @@ public class DashboardGUI extends JFrame {
 					.addGap(273)
 					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 					.addGap(264))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(247)
+					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 411, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(194, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -167,7 +188,9 @@ public class DashboardGUI extends JFrame {
 					.addComponent(button_2, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
 					.addGap(39)
 					.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
-					.addGap(349))
+					.addGap(152)
+					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
+					.addGap(81))
 		);
 		panel.setLayout(gl_panel);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
@@ -177,5 +200,4 @@ public class DashboardGUI extends JFrame {
 				Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 1035, Short.MAX_VALUE));
 		contentPane.setLayout(gl_contentPane);
 	}
-
 }

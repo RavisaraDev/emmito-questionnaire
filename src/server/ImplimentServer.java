@@ -15,12 +15,26 @@ import javax.swing.JOptionPane;
 
 import classes.Questions;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ImplimentServer.
+ */
 public class ImplimentServer extends UnicastRemoteObject implements RemoteInterface {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The conn. */
 	static Connection conn;
+	
+	/** The session cookie. */
 	private String sessionCookie = null;
 
+	/**
+	 * Instantiates a new impliment server.
+	 *
+	 * @throws RemoteException the remote exception
+	 */
 	// Implement server
 	protected ImplimentServer() throws RemoteException {
 		super();
@@ -36,6 +50,14 @@ public class ImplimentServer extends UnicastRemoteObject implements RemoteInterf
 		}
 	}
 
+	/**
+	 * Check user.
+	 *
+	 * @param user the user
+	 * @param password the password
+	 * @return true, if successful
+	 * @throws RemoteException the remote exception
+	 */
 	// Authenticating user
 	@Override
 	public boolean checkUser(String user, String password) throws RemoteException {
@@ -63,6 +85,13 @@ public class ImplimentServer extends UnicastRemoteObject implements RemoteInterf
 		return false;
 	}
 
+	/**
+	 * Submit first feedback form.
+	 *
+	 * @param questionSetAnswers the question set answers
+	 * @return true, if successful
+	 * @throws RemoteException the remote exception
+	 */
 	// submit first feedback form
 	@Override
 	public boolean submitFirstFeedbackForm(Questions questionSetAnswers) throws RemoteException {
@@ -83,6 +112,13 @@ public class ImplimentServer extends UnicastRemoteObject implements RemoteInterf
 		}
 	}
 
+	/**
+	 * Submit second feedback form.
+	 *
+	 * @param questionSetAnswers the question set answers
+	 * @return true, if successful
+	 * @throws RemoteException the remote exception
+	 */
 	// submit second feedback form
 	@Override
 	public boolean submitSecondFeedbackForm(Questions questionSetAnswers) throws RemoteException {
@@ -119,6 +155,12 @@ public class ImplimentServer extends UnicastRemoteObject implements RemoteInterf
 
 	}
 
+	/**
+	 * Gets the answers data.
+	 *
+	 * @param answerNumber the answer number
+	 * @return the answers data
+	 */
 	static Stack<String> getAnswersData(String answerNumber) {
 		Stack<String> answerStack = new Stack<String>();
 
@@ -155,6 +197,12 @@ public class ImplimentServer extends UnicastRemoteObject implements RemoteInterf
 		}
 	}
 
+	/**
+	 * Analyze answers.
+	 *
+	 * @return the string
+	 * @throws RemoteException the remote exception
+	 */
 	// Get data to show the chart
 	@Override
 	public String analyzeAnswers() throws RemoteException {
@@ -178,6 +226,13 @@ public class ImplimentServer extends UnicastRemoteObject implements RemoteInterf
 		return chartUrl;
 	}
 
+	/**
+	 * Collect data.
+	 *
+	 * @param questionSetAnswers the question set answers
+	 * @return true, if successful
+	 * @throws RemoteException the remote exception
+	 */
 	@Override
 	public boolean collectData(Questions questionSetAnswers) throws RemoteException {
 		Vector<String> answerVector = new Vector<String>();
@@ -189,6 +244,12 @@ public class ImplimentServer extends UnicastRemoteObject implements RemoteInterf
 		return true;
 	}
 
+	/**
+	 * Sets the cookie.
+	 *
+	 * @return the string
+	 * @throws RemoteException the remote exception
+	 */
 	@Override
 	public String setCookie() throws RemoteException {
 		String loginSessionCookie = sessionCookie;

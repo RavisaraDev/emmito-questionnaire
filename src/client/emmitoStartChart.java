@@ -17,26 +17,37 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Dimension;
+import javax.swing.JButton;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class emmitoStartChart.
+ */
 public class emmitoStartChart extends JFrame {
 
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The content pane. */
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -72,17 +83,52 @@ public class emmitoStartChart extends JFrame {
 		JPanel panel = new JPanel();
 		
 		panel.setBackground(Color.DARK_GRAY);
+		
+		JButton btnGoToDashboard = new JButton("< Go to dashboard");
+		btnGoToDashboard.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					String lookupstring = "rmi://localhost:1099/emmitoQuestionnaireServer";
+					RemoteInterface remoteInterface = (RemoteInterface)Naming.lookup(lookupstring);
+					String loginSessionCookie = remoteInterface.setCookie();
+					
+					DashboardGUI dashboard = new DashboardGUI(loginSessionCookie);
+					dashboard.setVisible(true);
+					dashboard.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					dashboard.setResizable(false);
+					dispose();
+					
+				} catch (RemoteException | MalformedURLException | NotBoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} 
+				
+				
+				
+			}
+		});
+		
+		btnGoToDashboard.setFont(new Font("Dialog", Font.BOLD, 23));
+		btnGoToDashboard.setForeground(Color.WHITE);
+		btnGoToDashboard.setBackground(new Color(102, 51, 255));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 982, Short.MAX_VALUE)
+				.addComponent(panel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(83)
+					.addComponent(btnGoToDashboard, GroupLayout.PREFERRED_SIZE, 373, GroupLayout.PREFERRED_SIZE)
+					.addGap(605))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 1636, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(51, Short.MAX_VALUE))
+					.addGap(18)
+					.addComponent(btnGoToDashboard, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		
 		JLabel lblAnalyzeFeedbacks = new JLabel("Analyze Feedbacks");
@@ -135,11 +181,11 @@ public class emmitoStartChart extends JFrame {
 							.addComponent(lblNewLabel)
 							.addComponent(ChartOne, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 996, Short.MAX_VALUE)
 							.addComponent(lblChart))
-						.addContainerGap())
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 			);
 			gl_panel.setVerticalGroup(
-				gl_panel.createParallelGroup(Alignment.LEADING)
-					.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+				gl_panel.createParallelGroup(Alignment.TRAILING)
+					.addGroup(gl_panel.createSequentialGroup()
 						.addComponent(lblAnalyzeFeedbacks, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
 						.addComponent(lblChart)

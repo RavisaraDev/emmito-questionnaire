@@ -34,21 +34,40 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class emmitoFirstQuestionForm.
+ */
 public class emmitoFirstQuestionForm extends JFrame {
+	
+	/** The question one answer. */
 	String questionOneAnswer;
+	
+	/** The question two answer. */
 	String questionTwoAnswer;
+	
+	/** The question three answer. */
 	String questionThreeAnswer;
-	/**
-	 * 
-	 */
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The question one button group. */
 	private final ButtonGroup questionOneButtonGroup = new ButtonGroup();
+	
+	/** The question two button group. */
 	private final ButtonGroup questionTwoButtonGroup = new ButtonGroup();
+	
+	/** The question three button group. */
 	private final ButtonGroup questionThreeButtonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
