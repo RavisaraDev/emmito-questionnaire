@@ -17,7 +17,6 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
@@ -69,7 +68,7 @@ public class DashboardGUI extends JFrame {
 		cookie = loginSessionCookie;
 		setBackground(SystemColor.controlDkShadow);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 834, 1093);
+		setBounds(100, 100, 834, 1148);
 		contentPane = new JPanel();
 		contentPane.setBackground(UIManager.getColor("CheckBox.foreground"));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -95,8 +94,6 @@ public class DashboardGUI extends JFrame {
 		JButton button_1 = new JButton("Analyze Feedbacks");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				String question = "";
-//				BufferedImage image = null;
 
 				if (cookie == null) {
 					final JDialog dialog = new JDialog();
@@ -139,33 +136,35 @@ public class DashboardGUI extends JFrame {
 		lblNewLabel_1.setIcon(new ImageIcon("/home/nipun/eclipse-workspace/EmmitoUserFeedbackQuestionnaire/src/assets/bg.png"));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.TRAILING)
+			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(266)
-					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addGap(271))
+					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 827, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(194)
-					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-						.addComponent(button, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
-						.addComponent(button_1, GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
-						.addComponent(button_2, GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE))
-					.addGap(185))
-				.addComponent(lblNewLabel_1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 824, Short.MAX_VALUE)
+					.addGap(152)
+					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(button, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
+						.addComponent(button_2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(button_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addContainerGap(150, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+					.addGap(250)
+					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+					.addGap(214))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
-					.addGap(189)
-					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-					.addGap(32)
+					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 587, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(button, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-					.addGap(36)
+					.addGap(49)
 					.addComponent(button_2, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
-					.addGap(39)
+					.addGap(44)
 					.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
-					.addGap(349))
+					.addContainerGap(74, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);

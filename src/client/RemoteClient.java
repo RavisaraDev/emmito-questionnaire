@@ -26,9 +26,6 @@ public class RemoteClient {
 			String lookupstring = "rmi://localhost:1099/emmitoQuestionnaireServer";
 			RemoteInterface remoteInterface = (RemoteInterface)Naming.lookup(lookupstring);
 			
-			Boolean isUserExist = remoteInterface.checkUser("admin", "admin");
-			System.out.println(isUserExist);
-			
 		} catch(RemoteException error) {
 			error.printStackTrace();
 		}
